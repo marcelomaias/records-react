@@ -1,0 +1,34 @@
+@import "normalize";
+@import "variables";
+@import "mixings";
+
+html {
+  font-size: 16px;
+}
+body {
+  background: $bg-color;
+  color: $text-color;
+  font-size: 1rem;
+  font-weight: 400;
+  @include screen(small) {
+    font-size: 1.1rem;
+  }
+  @include screen(medium) {
+    font-size: 1.5rem;
+  }
+}
+a,
+a:hover,
+a:visited {
+  text-decoration: none;
+  color: $accent-color;
+}
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+p {
+  margin: 0 0 1em 0;
+}

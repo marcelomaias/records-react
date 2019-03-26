@@ -1,0 +1,178 @@
+@import './scss/variables';
+@import './scss/mixings';
+
+input[type='color'],
+input[type='date'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='email'],
+input[type='month'],
+input[type='number'],
+input[type='password'],
+input[type='search'],
+input[type='tel'],
+input[type='text'],
+input[type='time'],
+input[type='url'],
+input[type='week'],
+select,
+textarea {
+  border-color: $input-border-color;
+  border-radius: $input-border-radius;
+  // @include box-shadow(2);
+  border-width: $input-border-width;
+  border-style: solid;
+  color: $input-text-color;
+  font-size: inherit;
+  font-weight: 400;
+  padding: 8px;
+  width: 100%;
+}
+
+input[type='color']:hover,
+input[type='date']:hover,
+input[type='datetime']:hover,
+input[type='datetime-local']:hover,
+input[type='email']:hover,
+input[type='month']:hover,
+input[type='number']:hover,
+input[type='password']:hover,
+input[type='search']:hover,
+input[type='tel']:hover,
+input[type='text']:hover,
+input[type='time']:hover,
+input[type='url']:hover,
+input[type='week']:hover,
+textarea:hover,
+select:hover {
+  border-color: #e0e0e0;
+}
+
+input[type='color']:focus,
+input[type='date']:focus,
+input[type='datetime']:focus,
+input[type='datetime-local']:focus,
+input[type='email']:focus,
+input[type='month']:focus,
+input[type='number']:focus,
+input[type='password']:focus,
+input[type='search']:focus,
+input[type='tel']:focus,
+input[type='text']:focus,
+input[type='time']:focus,
+input[type='url']:focus,
+input[type='week']:focus,
+textarea:focus,
+select:focus {
+  border-color: #adadad;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06), 0 0 5px rgba(160, 160, 160, 0.7);
+  outline: none;
+}
+
+input[type='checkbox'],
+input[type='image'],
+input[type='radio'] {
+  width: auto;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #c7c7c7;
+  opacity: 1;
+  font-weight: 400;
+}
+
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+  color: #c7c7c7;
+  opacity: 1;
+  font-weight: 400;
+}
+
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: #c7c7c7;
+  opacity: 1;
+  font-weight: 400;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: #c7c7c7;
+  opacity: 1;
+  font-weight: 400;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #c7c7c7;
+  opacity: 1;
+  font-weight: 400;
+}
+
+// ##########################################################################
+// ##########################################################################
+// ##########################################################################
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  // background-image: url(/arquivos/select-bg.png);
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  -webkit-background-size: 20px;
+  background-size: 20px;
+}
+
+// ##########################################################################
+// ##########################################################################
+// ##########################################################################
+
+input[type='checkbox'],
+input[type='radio'] {
+  margin: 0;
+  // opacity: 0;
+  padding: 0;
+}
+
+input[type='checkbox'] + label,
+input[type='radio'] + label {
+  // background: url(images/form/checkbox.svg) no-repeat scroll left center transparent;
+  -webkit-background-size: 15px 15px;
+  background-size: 15px 15px;
+  display: inline-block;
+  line-height: 15px;
+  margin-left: -18px;
+  padding-left: 22px;
+}
+
+input[type='checkbox']:checked + label {
+  // background-image: url(images/form/checked.svg);
+  -webkit-background-size: 16px 15px;
+  background-size: 16px 15px;
+}
+
+input[type='radio'] + label {
+  // background-image: url(images/form/radio.svg);
+}
+
+input[type='radio']:checked + label {
+  // background-image: url(images/form/radio-select.svg);
+}
+label.radio {
+  margin-right: 1em;
+  input {
+    margin-right: 0.5em;
+  }
+}
+
+// ##########################################################################
+// ##########################################################################
+// ##########################################################################
+
+form {
+  > .form-element {
+    margin: 0 0 1rem 0;
+  }
+}

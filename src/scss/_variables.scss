@@ -1,0 +1,12 @@
+@import './scss/mixings';
+
+$text-color: #000;
+$bg-color: #f3f4f9;
+$accent-color: #004adc;
+
+$input-text-color: inherit;
+$input-bg-color: $bg-color;
+$input-border-color: darken($bg-color, 10%);
+$input-border-color-hover: darken($input-border-color, 10%);
+$input-border-width: 2px;
+$input-border-radius: 4px;

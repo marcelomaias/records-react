@@ -1,0 +1,107 @@
+@import "variables";
+@import "mixings";
+
+@import url("https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,700");
+
+body {
+  font-family: "Noto Serif SC", serif;
+}
+header {
+  a,
+  a:hover,
+  a:visited {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #cccccf;
+    @include screen(small) {
+      font-size: 3rem;
+    }
+  }
+}
+nav {
+  margin: 1.45rem 0 2.5rem 0;
+  @include screen(small) {
+    padding-left: 8.9rem;
+  }
+  @include screen(medium) {
+    padding-left: 11.2rem;
+  }
+  ul {
+    padding: 0;
+  }
+  a.active {
+    border-bottom: 2px solid $accent-color;
+  }
+}
+.post-item {
+  margin-bottom: 2em;
+  @include screen(small) {
+    display: flex;
+    & > * {
+      flex: 0 1 auto;
+      padding: 1rem;
+    }
+  }
+  .post-item-date {
+    @include screen(small) {
+      padding-top: 1.45rem;
+      flex: 1 0 auto;
+      text-align: right;
+    }
+    @include screen(medium) {
+      padding-top: 1.6rem;
+    }
+  }
+  p {
+    margin: 0.25rem 0;
+  }
+  h2 {
+    a {
+      color: #000;
+    }
+  }
+  small {
+    text-transform: uppercase;
+    font-size: 70%;
+  }
+}
+.post {
+  padding: 2rem 0;
+  small {
+    display: block;
+    margin-bottom: 2rem;
+  }
+  img {
+    margin-bottom: 1rem;
+    max-width: 100%;
+    height: auto;
+  }
+  figure {
+    margin: 0;
+    figcaption {
+      padding: 0.25rem;
+      font-style: italic;
+      font-size: 90%;
+    }
+  }
+}
+.about-page {
+  figure {
+    margin: 4rem 0;
+    text-align: center;
+    figcaption {
+      padding: 0.25rem;
+      font-style: italic;
+      font-size: 80%;
+    }
+  }
+}
+footer {
+  padding: 2rem 0 0 0;
+  @include screen(small) {
+    padding-left: 8.9rem;
+  }
+  @include screen(medium) {
+    padding-left: 11.1rem;
+  }
+}
