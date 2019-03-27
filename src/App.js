@@ -9,9 +9,25 @@ import Home from './pages/home'
 import About from './pages/about'
 import Login from './components/auth/login'
 import Register from './components/auth/register'
+import jwt_decode from 'jwt-decode'
+import setAuthToken from './utilities/setAuthToken'
+import { setCurrentUser, logOut } from './actions/authActions'
 
 import './app.scss'
 
+// IF TOKEN IN LOCALSTORAGE, SET AUTHENTICATED: TRUE, AND USER
+if (localStorage.jwtToken) {
+  setAuthToken(localStorage.jwtToken)
+  const decodedToken = jwt_decode(localStorage.jwtToken)
+  store.dispatch(setCurrentUser(decodedToken))
+
+  // CHECK FOR EXPIRED TOKEN
+  const currentTime = Date.now() / 1000
+  if (decodedToken.exp < currentTime) {
+    store.dispatch(logOut())
+    window.location.href = '/login'
+  }
+}
 class App extends Component {
   render() {
     return (
