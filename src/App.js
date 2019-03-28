@@ -9,6 +9,9 @@ import Home from './pages/home'
 import About from './pages/about'
 import Login from './components/auth/login'
 import Register from './components/auth/register'
+import AddAlbum from './components/albums/addAlbum'
+import Album from './components/albums/album'
+import EditAlbum from './components/albums/editAlbum'
 import jwt_decode from 'jwt-decode'
 import setAuthToken from './utilities/setAuthToken'
 import { setCurrentUser, logOut } from './actions/authActions'
@@ -39,6 +42,9 @@ class App extends Component {
             <Route path="/about" component={About} />
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
+            <Route path="/addAlbum" component={AddAlbum} />
+            <Route path="/album/:id" component={Album} />
+            <Route path="/edit/:id" component={EditAlbum} />
             <Footer />
           </div>
         </Router>

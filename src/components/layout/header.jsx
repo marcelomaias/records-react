@@ -21,6 +21,9 @@ class Header extends Component {
             Logout
           </a>
         </li>
+        <li>
+          <Link to="/addAlbum">AddAlbum</Link>
+        </li>
       </ul>
     )
 
@@ -38,7 +41,14 @@ class Header extends Component {
     return (
       <header>
         {isAuthenticated ? <div>Hello {user.name}</div> : null}
-        <nav>{isAuthenticated ? authLinks : guestLinks}</nav>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+          </ul>
+          {isAuthenticated ? authLinks : guestLinks}
+        </nav>
       </header>
     )
   }
