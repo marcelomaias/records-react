@@ -24,24 +24,28 @@ class Album extends Component {
     const { isAuthenticated } = this.props.auth
 
     return (
-      <div>
-        {loading ? <Spinner /> : null}
+      <main className="single">
         <Link to={'/'}>Back</Link>
-        <h1>{title}</h1>
-        <span>{artist}</span>
-        {year ? <span>{year}</span> : null}
-        {description ? <span>{description}</span> : null}
-        {cover ? <img src={cover} alt="Album Cover" /> : null}
-        {songs ? <span>{songs}</span> : null}
-        {isAuthenticated ? (
-          <div>
-            <button type="button" onClick={() => this.handleDelete(album._id)}>
-              Delete
-            </button>
-            <Link to={`/edit/${album._id}`}>Edit</Link>
-          </div>
-        ) : null}
-      </div>
+
+        <div className="content">
+          {loading ? <Spinner /> : null}
+          {cover ? <img src={cover} alt="Album Cover" /> : null}
+          <h1>{title}</h1>
+          <span>{artist}</span>
+          {year ? <span>{year}</span> : null}
+          {description ? <p>{description}</p> : null}
+
+          {songs ? <span>{songs}</span> : null}
+          {isAuthenticated ? (
+            <div>
+              <button type="button" onClick={() => this.handleDelete(album._id)}>
+                Delete
+              </button>
+              <Link to={`/edit/${album._id}`}>Edit</Link>
+            </div>
+          ) : null}
+        </div>
+      </main>
     )
   }
 }

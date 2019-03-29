@@ -29,6 +29,12 @@ export const getAlbums = () => dispatch => {
         payload: res.data
       })
     })
+    .then(res =>
+      dispatch({
+        type: GET_ALBUM,
+        payload: {}
+      })
+    )
     .catch(err =>
       dispatch({
         type: GET_ALBUMS,

@@ -1,7 +1,7 @@
 $breakpoints: (
-  'small': 768px,
-  'medium': 992px,
-  'large': 1600px
+  'small': 40em,
+  'medium': 64em,
+  'large': 78em
 ) !default;
 
 @mixin screen($breakpoint) {
