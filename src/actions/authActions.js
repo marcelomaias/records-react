@@ -6,7 +6,7 @@ import { GET_ERRORS, SET_CURRENT_USER } from './types'
 
 export const registerUser = (userData, history) => dispatch => {
   axios
-    .post('/users', userData)
+    .post(`${process.env.REACT_APP_API}/users`, userData)
     .then(result => {
       history.push('/login')
     })
@@ -20,7 +20,7 @@ export const registerUser = (userData, history) => dispatch => {
 
 export const loginUser = userData => dispatch => {
   axios
-    .post('/users/login', userData)
+    .post(`${process.env.REACT_APP_API}/users/login`, userData)
     .then(res => {
       // SAVE TOKEN TO LOCAL STORAGE
       const { token } = res.data
@@ -47,11 +47,12 @@ export const setCurrentUser = decodedToken => {
   }
 }
 
-export const logOut = () => dispatch => {
+export const logOut = history => dispatch => {
   // REMOVE TOKEN FROM LOCALSTORAGE
   localStorage.removeItem('jwtToken')
   // REMOVE AUTH HEADER FOR FUTURE REQUESTS
   setAuthToken(false)
   // SET USER TO {}, WHICH WILL SET isAUTHENTICATED TO FALSE
   dispatch(setCurrentUser({}))
+  history.push('/')
 }

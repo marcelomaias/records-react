@@ -4,7 +4,7 @@ import { GET_ERRORS, GET_ALBUMS, GET_ALBUM, ALBUM_LOADING } from './types'
 
 export const addAlbum = (albumData, history) => dispatch => {
   axios
-    .post('/albums', albumData)
+    .post(`${process.env.REACT_APP_API}/albums`, albumData)
     .then(result => {
       history.push('/')
       // dispatch({
@@ -22,7 +22,7 @@ export const addAlbum = (albumData, history) => dispatch => {
 export const getAlbums = () => dispatch => {
   dispatch(setLoading())
   axios
-    .get('/albums')
+    .get(`${process.env.REACT_APP_API}/albums`)
     .then(res => {
       dispatch({
         type: GET_ALBUMS,
@@ -45,7 +45,7 @@ export const getAlbums = () => dispatch => {
 export const getAlbum = id => dispatch => {
   dispatch(setLoading())
   axios
-    .get(`/albums/${id}`)
+    .get(`${process.env.REACT_APP_API}/albums/${id}`)
     .then(res => {
       dispatch({
         type: GET_ALBUM,
@@ -61,7 +61,7 @@ export const getAlbum = id => dispatch => {
 }
 export const deleteAlbum = (id, history) => dispatch => {
   axios
-    .delete(`/albums/${id}`)
+    .delete(`${process.env.REACT_APP_API}/albums/${id}`)
     .then(res => {
       history.push('/')
     })
@@ -74,7 +74,7 @@ export const deleteAlbum = (id, history) => dispatch => {
 }
 export const editAlbum = (id, albumData, history) => dispatch => {
   axios
-    .put(`/albums/${id}`, albumData)
+    .put(`${process.env.REACT_APP_API}/albums/${id}`, albumData)
     .then(res => {
       history.push(`/album/${id}`)
     })
