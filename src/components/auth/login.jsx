@@ -41,37 +41,41 @@ class Login extends Component {
     const { errors } = this.state
 
     return (
-      <div>
-        <h1>Login</h1>
+      <main className="form">
+        <div className="content">
+          <h1>Login</h1>
 
-        <form onSubmit={this.handleSubmit} noValidate>
-          <div className="form-element">
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Email"
-              value={this.state.email}
-              onChange={this.handleInput}
-              className={errors.email ? 'error' : null}
-            />
-            {errors.email && <small>{errors.email}</small>}
-          </div>
-          <div className="form-element">
-            <input
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Password"
-              value={this.state.password}
-              onChange={this.handleInput}
-              className={errors.password ? 'error' : null}
-            />
-            {errors.password && <small>{errors.password}</small>}
-          </div>
-          <button>Submit</button>
-        </form>
-      </div>
+          <form onSubmit={this.handleSubmit} noValidate>
+            <div className="form-element">
+              <label htmlFor="email">Email</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Email"
+                value={this.state.email}
+                onChange={this.handleInput}
+                className={errors.email ? 'error' : null}
+              />
+              {errors.email && <small>{errors.email}</small>}
+            </div>
+            <div className="form-element">
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+                value={this.state.password}
+                onChange={this.handleInput}
+                className={errors.password ? 'error' : null}
+              />
+              {errors.password && <small>{errors.password}</small>}
+            </div>
+            <button>Submit</button>
+          </form>
+        </div>
+      </main>
     )
   }
 }

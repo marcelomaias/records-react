@@ -44,61 +44,67 @@ class Register extends Component {
     const { errors } = this.state
 
     return (
-      <div>
-        <h1>Register</h1>
+      <main className="form">
+        <div className="content">
+          <h1>Register</h1>
 
-        <form onSubmit={this.handleSubmit} noValidate>
-          <div className="form-element">
-            <input
-              type="text"
-              name="name"
-              id="name"
-              placeholder="Name"
-              value={this.state.name}
-              onChange={this.handleInput}
-              className={errors.name ? 'error' : null}
-            />
-            {errors.name && <small>{errors.name}</small>}
-          </div>
-          <div className="form-element">
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Email"
-              value={this.state.email}
-              onChange={this.handleInput}
-              className={errors.email ? 'error' : null}
-            />
-            {errors.email && <small>{errors.email}</small>}
-          </div>
-          <div className="form-element">
-            <input
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Password"
-              value={this.state.password}
-              onChange={this.handleInput}
-              className={errors.password ? 'error' : null}
-            />
-            {errors.password && <small>{errors.password}</small>}
-          </div>
-          <div className="form-element">
-            <input
-              type="password"
-              name="password2"
-              id="password2"
-              placeholder="Confirm Password"
-              value={this.state.password2}
-              onChange={this.handleInput}
-              className={errors.password2 ? 'error' : null}
-            />
-            {errors.password2 && <small>{errors.password2}</small>}
-          </div>
-          <button>Submit</button>
-        </form>
-      </div>
+          <form onSubmit={this.handleSubmit} noValidate>
+            <label htmlFor="name">Name</label>
+            <div className="form-element">
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Name"
+                value={this.state.name}
+                onChange={this.handleInput}
+                className={errors.name ? 'error' : null}
+              />
+              {errors.name && <small>{errors.name}</small>}
+            </div>
+            <div className="form-element">
+              <label htmlFor="email">Email</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Email"
+                value={this.state.email}
+                onChange={this.handleInput}
+                className={errors.email ? 'error' : null}
+              />
+              {errors.email && <small>{errors.email}</small>}
+            </div>
+            <div className="form-element">
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+                value={this.state.password}
+                onChange={this.handleInput}
+                className={errors.password ? 'error' : null}
+              />
+              {errors.password && <small>{errors.password}</small>}
+            </div>
+            <div className="form-element">
+              <label htmlFor="password2">Confirm password</label>
+              <input
+                type="password"
+                name="password2"
+                id="password2"
+                placeholder="Confirm Password"
+                value={this.state.password2}
+                onChange={this.handleInput}
+                className={errors.password2 ? 'error' : null}
+              />
+              {errors.password2 && <small>{errors.password2}</small>}
+            </div>
+            <button>Submit</button>
+          </form>
+        </div>
+      </main>
     )
   }
 }

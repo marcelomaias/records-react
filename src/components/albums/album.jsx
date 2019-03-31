@@ -25,25 +25,35 @@ class Album extends Component {
 
     return (
       <main className="single">
-        <Link to={'/'}>Back</Link>
-
         <div className="content">
           {loading ? <Spinner /> : null}
-          {cover ? <img src={cover} alt="Album Cover" /> : null}
-          <h1>{title}</h1>
-          <span>{artist}</span>
-          {year ? <span>{year}</span> : null}
-          {description ? <p>{description}</p> : null}
 
-          {songs ? <span>{songs}</span> : null}
-          {isAuthenticated ? (
+          {cover ? (
             <div>
-              <button type="button" onClick={() => this.handleDelete(album._id)}>
-                Delete
-              </button>
-              <Link to={`/edit/${album._id}`}>Edit</Link>
+              <img src={cover} alt="Album Cover" />
             </div>
           ) : null}
+          <div>
+            <Link to={'/'} className="back-link">
+              Back
+            </Link>
+            <h1>{title}</h1>
+            <span className="artist">{artist}</span>
+            {year ? <span> - {year}</span> : null}
+            {description ? <p>{description}</p> : null}
+
+            {songs ? <span>{songs}</span> : null}
+            {isAuthenticated ? (
+              <div>
+                <Link className="button" to={`/edit/${album._id}`}>
+                  Edit
+                </Link>
+                <button className="danger" type="button" onClick={() => this.handleDelete(album._id)}>
+                  Delete
+                </button>
+              </div>
+            ) : null}
+          </div>
         </div>
       </main>
     )

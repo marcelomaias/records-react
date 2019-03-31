@@ -15,8 +15,8 @@ html {
 body {
   margin: 0;
   padding: 0;
+  background: darken($bg-color, 5%);
   color: $text-color;
-  // background: $bg-color;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
     'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -35,10 +35,21 @@ form {
     color: orangered;
   }
 }
-main,
-header {
-  padding: 15px;
+main {
+  padding: 3em 15px 4em 15px;
+  background: $bg-color;
+  a,
+  a:visited {
+    color: darken($bg-color, 50%);
+    text-decoration: none;
+  }
+  img {
+    @include box-shadow(1);
+    margin-bottom: 2em;
+  }
 }
+
+$header-border: 8px;
 header {
   nav {
     display: flex;
@@ -46,34 +57,24 @@ header {
   }
   ul {
     display: flex;
+    align-items: center;
   }
   ul:nth-child(2) {
     text-align: right;
   }
-}
-main {
-  text-align: center;
+  li {
+    padding-right: 0.5em;
+  }
   a,
   a:visited {
     text-decoration: none;
-    color: inherit;
-    position: relative;
-    display: inline-block;
-    .icon {
-      position: absolute;
-      right: 0.45rem;
-      bottom: 0.45rem;
-      transition: opacity 0.25s;
-      @include screen(large) {
-        opacity: 0;
-      }
-    }
-    &:hover {
-      .icon {
-        opacity: 1;
-      }
-    }
+    text-transform: uppercase;
+    font-size: 0.8em;
   }
+}
+main.grid {
+  text-align: center;
+  padding: 3em 15px 0 15px;
   li {
     margin-bottom: 3rem;
   }
@@ -83,11 +84,11 @@ main {
   span {
     text-transform: uppercase;
   }
-  img {
-    @include box-shadow(1);
-  }
+
   ul.grid {
+    padding-bottom: 2em;
     @include screen(small) {
+      padding-bottom: 0;
       display: flex;
       flex-flow: row wrap;
       justify-content: space-around;
@@ -99,6 +100,27 @@ main {
       // background: lightslategrey;
     }
     font-size: 0.6em;
+    a,
+    a:visited {
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      display: inline-block;
+      .icon {
+        position: absolute;
+        right: 0.45rem;
+        bottom: 0.45rem;
+        transition: opacity 0.25s;
+        @include screen(large) {
+          opacity: 0;
+        }
+      }
+      &:hover {
+        .icon {
+          opacity: 1;
+        }
+      }
+    }
   }
   ul > li {
     @include screen(small) {
@@ -114,15 +136,69 @@ main {
 }
 main.single {
   text-align: left;
-}
-.content {
-  img {
-    float: left;
-    margin: 0 3rem 2rem 0;
+  .content {
+    > div:nth-child(1) {
+      text-align: center;
+    }
+  }
+  @include screen(small) {
+    .content {
+      display: flex;
+      > div:nth-child(1) {
+        flex: 1 0 auto;
+        padding: 1em;
+      }
+      > div:nth-child(2) {
+        flex: 1 1auto;
+        padding: 1em;
+      }
+    }
+  }
+  span.artist {
+    text-transform: uppercase;
+    font-size: 0.9em;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 1em;
   }
 }
+
 .content,
-.grid {
+ul.grid,
+nav,
+footer > * {
   max-width: 1200px;
   margin: 0 auto;
+}
+main.form {
+  .content {
+    max-width: 600px;
+  }
+  h1 {
+    margin-bottom: 1rem;
+  }
+  label {
+    display: block;
+    padding: 0 0 0.25em 8px;
+    font-size: 0.7em;
+    text-transform: uppercase;
+  }
+}
+header,
+footer {
+  padding: 1rem 15px;
+  color: darken($bg-color, 50%);
+  a,
+  a:visited {
+    color: darken($bg-color, 50%);
+    text-decoration: none;
+  }
+}
+footer {
+  a {
+    border-bottom: 1px solid darken($bg-color, 50%);
+  }
+}
+.back-link {
+  float: right;
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { logOut } from '../../actions/authActions'
 import PropTypes from 'prop-types'
@@ -9,20 +9,21 @@ class Header extends Component {
 
   handleLogout = e => {
     e.preventDefault()
-    this.props.logOut()
+    this.props.logOut(this.props.history)
   }
   render() {
     const { isAuthenticated, user } = this.props.auth
 
     const authLinks = (
       <ul>
+        <li className="user">{user.name}:</li>
+        <li>
+          <Link to="/addAlbum">Add Album</Link>
+        </li>
         <li>
           <a href="/" onClick={this.handleLogout}>
             Logout
           </a>
-        </li>
-        <li>
-          <Link to="/addAlbum">AddAlbum</Link>
         </li>
       </ul>
     )
@@ -40,7 +41,6 @@ class Header extends Component {
 
     return (
       <header>
-        {isAuthenticated ? <div>Hello {user.name}</div> : null}
         <nav>
           <ul>
             <li>
@@ -66,4 +66,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { logOut }
-)(Header)
+)(withRouter(Header))

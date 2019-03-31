@@ -15,7 +15,7 @@ class Home extends Component {
     const { albums, loading } = this.props.albums
 
     return (
-      <main>
+      <main className="grid">
         {loading ? <Spinner /> : null}
 
         <ul className="grid">

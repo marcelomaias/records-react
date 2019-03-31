@@ -176,3 +176,21 @@ form {
     margin: 0 0 1rem 0;
   }
 }
+button,
+.button {
+  font-weight: 400;
+  padding: 8px;
+  font-size: 0.8em;
+  color: #fff !important;
+  @include box-shadow(1);
+  border: none;
+  background: $accent-color;
+  border-radius: $input-border-radius;
+  padding: 0.5em 1.25em;
+  text-transform: uppercase;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+.danger {
+  background-color: $danger;
+}
