@@ -2,9 +2,11 @@ import axios from 'axios'
 
 import { GET_ERRORS, GET_ALBUMS, GET_ALBUM, ALBUM_LOADING } from './types'
 
+axios.defaults.baseURL = `${process.env.REACT_APP_API_URL}`
+
 export const addAlbum = (albumData, history) => dispatch => {
   axios
-    .post(`${process.env.REACT_APP_API}/albums`, albumData)
+    .post('/albums', albumData)
     .then(result => {
       history.push('/')
       // dispatch({
@@ -22,7 +24,7 @@ export const addAlbum = (albumData, history) => dispatch => {
 export const getAlbums = () => dispatch => {
   dispatch(setLoading())
   axios
-    .get(`${process.env.REACT_APP_API}/albums`)
+    .get('/albums')
     .then(res => {
       dispatch({
         type: GET_ALBUMS,
@@ -45,7 +47,7 @@ export const getAlbums = () => dispatch => {
 export const getAlbum = id => dispatch => {
   dispatch(setLoading())
   axios
-    .get(`${process.env.REACT_APP_API}/albums/${id}`)
+    .get(`/albums/${id}`)
     .then(res => {
       dispatch({
         type: GET_ALBUM,
@@ -61,7 +63,7 @@ export const getAlbum = id => dispatch => {
 }
 export const deleteAlbum = (id, history) => dispatch => {
   axios
-    .delete(`${process.env.REACT_APP_API}/albums/${id}`)
+    .delete(`/albums/${id}`)
     .then(res => {
       history.push('/')
     })
@@ -74,7 +76,7 @@ export const deleteAlbum = (id, history) => dispatch => {
 }
 export const editAlbum = (id, albumData, history) => dispatch => {
   axios
-    .put(`${process.env.REACT_APP_API}/albums/${id}`, albumData)
+    .put(`/albums/${id}`, albumData)
     .then(res => {
       history.push(`/album/${id}`)
     })
