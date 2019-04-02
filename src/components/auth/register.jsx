@@ -46,6 +46,9 @@ class Register extends Component {
     return (
       <main className="form">
         <div className="content">
+          <span className="button back-btn" onClick={() => this.props.history.goBack()}>
+            Back
+          </span>
           <h1>Register</h1>
 
           <form onSubmit={this.handleSubmit} noValidate>
