@@ -34,9 +34,9 @@ class Album extends Component {
             </div>
           ) : null}
           <div>
-            <Link to={'/'} className="back-link">
+            <span className="button back-btn" onClick={() => this.props.history.goBack()}>
               Back
-            </Link>
+            </span>
             <h1>{title}</h1>
             <span className="artist">{artist}</span>
             {year ? <span> - {year}</span> : null}
