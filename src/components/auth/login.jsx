@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { loginUser } from '../../actions/authActions'
 import PropTypes from 'prop-types'
 
+import BackButton from '../../components/ui/back-button'
+
 class Login extends Component {
   state = {
     email: '',
@@ -43,9 +45,7 @@ class Login extends Component {
     return (
       <main className="form">
         <div className="content">
-          <span className="button back-btn" onClick={() => this.props.history.goBack()}>
-            Back
-          </span>
+          <BackButton click={this.props.history.goBack} />
           <h1>Login</h1>
 
           <form onSubmit={this.handleSubmit} noValidate>
@@ -55,7 +55,6 @@ class Login extends Component {
                 type="email"
                 name="email"
                 id="email"
-                placeholder="Email"
                 value={this.state.email}
                 onChange={this.handleInput}
                 className={errors.email ? 'error' : null}
@@ -68,7 +67,6 @@ class Login extends Component {
                 type="password"
                 name="password"
                 id="password"
-                placeholder="Password"
                 value={this.state.password}
                 onChange={this.handleInput}
                 className={errors.password ? 'error' : null}

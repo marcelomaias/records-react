@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 
 import { getAlbum, deleteAlbum } from '../../actions/albumActions'
 import Spinner from '../../components/ui/spinner'
+import BackButton from '../../components/ui/back-button'
 
 class Album extends Component {
   state = {}
@@ -34,9 +35,7 @@ class Album extends Component {
             </div>
           ) : null}
           <div>
-            <span className="button back-btn" onClick={() => this.props.history.goBack()}>
-              Back
-            </span>
+            <BackButton click={this.props.history.goBack} />
             <h1>{title}</h1>
             <span className="artist">{artist}</span>
             {year ? <span> - {year}</span> : null}
