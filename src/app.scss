@@ -4,6 +4,8 @@
 @import './scss/_form-elements';
 @import './scss/typography';
 
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+
 html {
   box-sizing: border-box;
 }
@@ -15,10 +17,10 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background: darken($bg-color, 5%);
+  background: $dark-color;
   color: $text-color;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
-    'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+    'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
@@ -37,10 +39,11 @@ form {
 }
 main {
   padding: 3em 15px 4em 15px;
-  background: $bg-color;
+  background: $light-color;
+  border-top: 1px solid darken($light-color, 20%);
   a,
   a:visited {
-    color: darken($bg-color, 50%);
+    color: $accent-color;
     text-decoration: none;
   }
   img {
@@ -49,27 +52,73 @@ main {
   }
 }
 
+header,
+footer {
+  padding: 1rem 15px;
+  color: #000;
+  a,
+  a:visited {
+    text-decoration: none;
+    color: $accent-color;
+  }
+}
+
 $header-border: 8px;
 header {
   nav {
     display: flex;
     justify-content: space-between;
+    > div {
+      text-align: right;
+      line-height: 1.2;
+    }
   }
   ul {
     display: flex;
     align-items: center;
   }
-  ul:nth-child(2) {
-    text-align: right;
-  }
+
   li {
     padding-right: 0.5em;
+    &:last-child {
+      padding-right: 0;
+    }
   }
   a,
   a:visited {
     text-decoration: none;
     text-transform: uppercase;
     font-size: 0.8em;
+  }
+  a.logo {
+    display: block;
+    line-height: 1;
+    font-size: 24px;
+    font-weight: 700;
+    color: #000;
+    svg {
+      margin-right: 5px;
+      position: relative;
+      top: 3px;
+    }
+    em {
+      font-style: normal;
+      color: lighten(#000, 60%);
+    }
+    span {
+      display: none;
+      @include screen(small) {
+        display: inline;
+      }
+    }
+  }
+  .user {
+    text-transform: uppercase;
+    font-size: 0.7em;
+    color: #999;
+    span {
+      color: #000;
+    }
   }
 }
 main.grid {
@@ -79,7 +128,7 @@ main.grid {
     margin-bottom: 3rem;
   }
   h2 {
-    margin: 0.5rem 0 0 0;
+    margin: 0.25rem 0 0 0;
   }
   span {
     text-transform: uppercase;
@@ -91,7 +140,7 @@ main.grid {
       padding-bottom: 0;
       display: flex;
       flex-flow: row wrap;
-      justify-content: space-around;
+      justify-content: space-between;
     }
     @include screen(medium) {
       // background: lightsalmon;
@@ -121,6 +170,9 @@ main.grid {
         }
       }
     }
+    img {
+      margin-bottom: 0;
+    }
   }
   ul > li {
     @include screen(small) {
@@ -130,7 +182,7 @@ main.grid {
       flex: 0 1 31%;
     }
     @include screen(large) {
-      flex: 0 1 18%;
+      flex: 0 1 23%;
     }
   }
 }
@@ -184,21 +236,24 @@ main.form {
     text-transform: uppercase;
   }
 }
-header,
-footer {
-  padding: 1rem 15px;
-  color: darken($bg-color, 50%);
-  a,
-  a:visited {
-    color: darken($bg-color, 50%);
-    text-decoration: none;
-  }
-}
-footer {
-  a {
-    border-bottom: 1px solid darken($bg-color, 50%);
-  }
-}
-.back-link {
+
+.back-btn {
   float: right;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5em 1.25em 0.5em 0.75em;
+  svg {
+    transform: scale(0.7);
+    path {
+      fill: #fff;
+    }
+  }
+}
+div.info {
+  margin-bottom: 3em;
+  color: #888;
+  font-size: 0.9em;
+  p {
+    margin-bottom: 0.25em;
+  }
 }
