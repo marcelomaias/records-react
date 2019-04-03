@@ -1,0 +1,120 @@
+@import './scss/fix';
+@import './scss/variables';
+@import './scss/mixings';
+@import './scss/_form-elements';
+
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body {
+  margin: 0;
+  padding: 0;
+  line-height: $line-height;
+  color: $text-color;
+  background: $bg-color;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 18px;
+  @include screen(small) {
+    font-size: 20px;
+  }
+  @include screen(medium) {
+    font-size: 24px;
+  }
+}
+form {
+  input.error {
+    border-color: orangered;
+  }
+  small {
+    color: orangered;
+  }
+}
+main,
+header {
+  padding: 15px;
+}
+header {
+  nav {
+    display: flex;
+    justify-content: space-between;
+  }
+  ul {
+    display: flex;
+  }
+  ul:nth-child(2) {
+    text-align: right;
+  }
+}
+main {
+  text-align: center;
+  a,
+  a:visited {
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    display: inline-block;
+    .icon {
+      position: absolute;
+      right: 0.45rem;
+      bottom: 0.45rem;
+      transition: opacity 0.25s;
+      @include screen(large) {
+        opacity: 0;
+      }
+    }
+    &:hover {
+      .icon {
+        opacity: 1;
+      }
+    }
+  }
+  li {
+    margin-bottom: 3rem;
+    padding: 0 0.5rem;
+  }
+  h2 {
+    font-size: 1.1rem;
+    margin: 1.5rem 0 1.2rem 0;
+  }
+  span {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+  }
+  img {
+    @include box-shadow(1);
+  }
+  ul.grid {
+    line-height: 0;
+    @include screen(small) {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-around;
+    }
+    @include screen(medium) {
+      // background: lightsalmon;
+    }
+    @include screen(large) {
+      // background: lightslategrey;
+    }
+  }
+  ul > li {
+    flex: 1 1 auto;
+  }
+}
+main.single {
+  text-align: left;
+}
+.content {
+  img {
+    float: left;
+    margin: 0 3rem 2rem 0;
+  }
+}

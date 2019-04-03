@@ -45,7 +45,7 @@ input[type='url']:hover,
 input[type='week']:hover,
 textarea:hover,
 select:hover {
-  border-color: #e0e0e0;
+  border-color: $input-border-color-hover;
 }
 
 input[type='color']:focus,
@@ -64,7 +64,7 @@ input[type='url']:focus,
 input[type='week']:focus,
 textarea:focus,
 select:focus {
-  border-color: #adadad;
+  border-color: $input-border-color-hover;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06), 0 0 5px rgba(160, 160, 160, 0.7);
   outline: none;
 }
@@ -175,4 +175,22 @@ form {
   > .form-element {
     margin: 0 0 1rem 0;
   }
+}
+button,
+.button {
+  font-weight: 400;
+  padding: 8px;
+  font-size: 0.8em;
+  color: #fff !important;
+  @include box-shadow(1);
+  border: none;
+  background: $accent-color;
+  border-radius: $input-border-radius;
+  padding: 0.5em 1.25em;
+  text-transform: uppercase;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+.danger {
+  background-color: $danger;
 }

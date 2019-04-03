@@ -1,0 +1,7 @@
+export const GET_ERRORS = 'GET_ERRORS'
+export const SET_CURRENT_USER = 'SET_CURRENT_USER'
+export const ALBUM_LOADING = 'ALBUM_LOADING'
+export const GET_ALBUMS = 'GET_ALBUMS'
+export const GET_ALBUM = 'GET_ALBUM'
+export const ADD_ALBUM = 'ADD_ALBUM'
+export const DELETE_ALBUM = 'DELETE_ALBUM'
