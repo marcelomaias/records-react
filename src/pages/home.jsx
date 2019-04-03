@@ -13,10 +13,23 @@ class Home extends Component {
 
   render() {
     const { albums, loading } = this.props.albums
+    const { isAuthenticated } = this.props.auth
 
     return (
       <main className="grid">
         {loading ? <Spinner /> : null}
+
+        {!isAuthenticated ? (
+          <div className="info">
+            <p>This is a demo of a simple CRUD React App.</p>
+            <p>You can register with any email, or use the following login information:</p>
+            <p>
+              <code>
+                email: john@mail.com <br /> password: 123456
+              </code>
+            </p>
+          </div>
+        ) : null}
 
         <ul className="grid">
           {albums.map(album => {
@@ -43,11 +56,13 @@ class Home extends Component {
 
 Home.propTypes = {
   getAlbums: PropTypes.func.isRequired,
-  albums: PropTypes.object.isRequired
+  albums: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
-  albums: state.albums
+  albums: state.albums,
+  auth: state.auth
 })
 
 export default connect(
