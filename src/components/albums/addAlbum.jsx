@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import { addAlbum } from '../../actions/albumActions'
 import PropTypes from 'prop-types'
 
+import BackButton from '../../components/ui/back-button'
+
 class AddAlbum extends Component {
   state = {
     title: '',
@@ -50,9 +52,7 @@ class AddAlbum extends Component {
     return (
       <main className="form">
         <div className="content">
-          <span className="button back-btn" onClick={() => this.props.history.goBack()}>
-            Back
-          </span>
+          <BackButton click={this.props.history.goBack} />
           <h1>Add Album</h1>
 
           <form onSubmit={this.handleSubmit} noValidate>
@@ -62,7 +62,6 @@ class AddAlbum extends Component {
                 type="text"
                 name="title"
                 id="title"
-                placeholder="Title"
                 value={this.state.title}
                 onChange={this.handleInput}
                 className={errors.title ? 'error' : null}
@@ -75,7 +74,6 @@ class AddAlbum extends Component {
                 type="text"
                 name="artist"
                 id="artist"
-                placeholder="Artist"
                 value={this.state.artist}
                 onChange={this.handleInput}
                 className={errors.artist ? 'error' : null}
@@ -88,23 +86,23 @@ class AddAlbum extends Component {
                 type="text"
                 name="year"
                 id="year"
-                placeholder="Year"
                 value={this.state.year}
                 onChange={this.handleInput}
                 className={errors.year ? 'error' : null}
               />
               {errors.year && <small>{errors.year}</small>}
             </div>
+
             <div className="form-element">
               <label htmlFor="description">Description</label>
-              <input
+              <textarea
                 type="text"
                 name="description"
                 id="description"
-                placeholder="Description"
                 value={this.state.description}
                 onChange={this.handleInput}
                 className={errors.description ? 'error' : null}
+                rows="8"
               />
               {errors.description && <small>{errors.description}</small>}
             </div>
@@ -114,26 +112,12 @@ class AddAlbum extends Component {
                 type="text"
                 name="cover"
                 id="cover"
-                placeholder="Cover"
                 value={this.state.cover}
                 onChange={this.handleInput}
                 className={errors.cover ? 'error' : null}
               />
               {errors.cover && <small>{errors.cover}</small>}
             </div>
-            {/* <div className="form-element">
-            <label htmlFor="songs">Songs</label>
-              <input
-                type="text"
-                name="songs"
-                id="songs"
-                placeholder="Songs"
-                value={this.state.songs}
-                onChange={this.handleInput}
-                className={errors.songs ? 'error' : null}
-              />
-              {errors.songs && <small>{errors.songs}</small>}
-            </div> */}
             <button>Submit</button>
           </form>
         </div>
